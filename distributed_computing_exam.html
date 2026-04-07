@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распределенные вычисления - Подготовка к экзамену</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .search-box {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        #searchInput:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+        .content {
+            padding: 30px;
+        }
+        .qa-item {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        .qa-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+        }
+        .question {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .answer {
+            color: #333;
+            line-height: 1.6;
+            font-size: 15px;
+        }
+        .answer ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        .answer li {
+            margin-bottom: 5px;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 18px;
+            display: none;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Распределенные вычисления</h1>
+            <p>Подготовка к экзамену</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Введи ключевое слово для поиска (например: REST, TCP, DNS)...">
+        </div>
+        
+        <div class="content" id="qaContainer">
+            <div class="qa-item">
+                <div class="question">1. Архитектурный подход REST API (CRUD), RESTful веб-сервисы</div>
+                <div class="answer">
+                    <strong>REST (Representational State Transfer)</strong> — архитектурный стиль для создания веб-сервисов, основанный на HTTP.
+                    <ul>
+                        <li><strong>CRUD операции:</strong> Create (POST), Read (GET), Update (PUT/PATCH), Delete (DELETE)</li>
+                        <li><strong>Принципы REST:</strong> stateless (без состояния), клиент-сервер, кэширование, единообразие интерфейса</li>
+                        <li><strong>RESTful сервисы</strong> используют HTTP методы, работают с ресурсами через URI, возвращают данные в JSON/XML</li>
+                        <li><strong>Пример:</strong> GET /users/123 — получить пользователя, POST /users — создать нового</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">2. Понятие протокол. Виды протоколов</div>
+                <div class="answer">
+                    <strong>Протокол</strong> — набор правил для обмена данными между устройствами в сети.
+                    <ul>
+                        <li><strong>Прикладные:</strong> HTTP, FTP, SMTP, DNS</li>
+                        <li><strong>Транспортные:</strong> TCP, UDP</li>
+                        <li><strong>Сетевые:</strong> IP, ICMP, ARP</li>
+                        <li><strong>Канальные:</strong> Ethernet, Wi-Fi</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">3. Протоколы HTTP/HTTPS</div>
+                <div class="answer">
+                    <strong>HTTP (HyperText Transfer Protocol)</strong> — протокол передачи гипертекста, работает на порту 80.
+                    <ul>
+                        <li><strong>Методы:</strong> GET, POST, PUT, DELETE, HEAD, OPTIONS</li>
+                        <li><strong>Коды ответов:</strong> 2xx (успех), 3xx (перенаправление), 4xx (ошибка клиента), 5xx (ошибка сервера)</li>
+                        <li><strong>HTTPS</strong> — защищенная версия HTTP с шифрованием SSL/TLS, порт 443</li>
+                        <li><strong>Отличие:</strong> HTTPS шифрует данные, защищает от перехвата</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">4. SOAP, структура протокола</div>
+                <div class="answer">
+                    <strong>SOAP (Simple Object Access Protocol)</strong> — протокол обмена структурированными сообщениями на основе XML.
+                    <ul>
+                        <li><strong>Структура:</strong> Envelope (конверт) → Header (заголовок) → Body (тело) → Fault (ошибки)</li>
+                        <li><strong>Envelope:</strong> корневой элемент, определяет начало и конец сообщения</li>
+                        <li><strong>Header:</strong> метаданные (аутентификация, маршрутизация)</li>
+                        <li><strong>Body:</strong> основные данные запроса/ответа</li>
+                        <li><strong>Fault:</strong> информация об ошибках</li>
+                        <li><strong>Отличие от REST:</strong> более строгий, использует только XML, поддерживает WS-Security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">5. Механизм NAT</div>
+                <div class="answer">
+                    <strong>NAT (Network Address Translation)</strong> — преобразование IP-адресов для связи локальной сети с интернетом.
+                    <ul>
+                        <li><strong>Назначение:</strong> экономия публичных IP-адресов, скрытие внутренней структуры сети</li>
+                        <li><strong>Принцип:</strong> заменяет частные IP (192.168.x.x) на публичный IP при выходе в интернет</li>
+                        <li><strong>Типы:</strong> Static NAT (1:1), Dynamic NAT (пул адресов), PAT/NAPT (много устройств → 1 IP через порты)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">6. Служба DNS</div>
+                <div class="answer">
+                    <strong>DNS (Domain Name System)</strong> — служба преобразования доменных имен в IP-адреса.
+                    <ul>
+                        <li><strong>Назначение:</strong> связывает понятные имена (google.com) с IP-адресами (142.250.185.46)</li>
+                        <li><strong>Иерархия:</strong> корневые серверы → серверы доменов верхнего уровня (.com, .ru) → авторитетные серверы</li>
+                        <li><strong>Типы записей:</strong> A (IPv4), AAAA (IPv6), MX (почта), CNAME (псевдоним), NS (сервер имен)</li>
+                        <li><strong>Порт:</strong> 53 (UDP/TCP)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">7. Служба DHCP</div>
+                <div class="answer">
+                    <strong>DHCP (Dynamic Host Configuration Protocol)</strong> — автоматическое назначение IP-адресов устройствам в сети.
+                    <ul>
+                        <li><strong>Назначение:</strong> упрощает настройку сети, избегает конфликтов IP-адресов</li>
+                        <li><strong>Процесс:</strong> Discover (поиск) → Offer (предложение) → Request (запрос) → Acknowledge (подтверждение)</li>
+                        <li><strong>Выдает:</strong> IP-адрес, маску подсети, шлюз по умолчанию, DNS-серверы</li>
+                        <li><strong>Порты:</strong> 67 (сервер), 68 (клиент)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">8. Протоколы TCP/UDP</div>
+                <div class="answer">
+                    <strong>TCP (Transmission Control Protocol)</strong> — надежный протокол с установкой соединения.
+                    <ul>
+                        <li><strong>TCP:</strong> гарантирует доставку, порядок пакетов, контроль ошибок, медленнее (HTTP, FTP, SMTP)</li>
+                        <li><strong>Установка соединения:</strong> 3-way handshake (SYN → SYN-ACK → ACK)</li>
+                    </ul>
+                    <strong>UDP (User Datagram Protocol)</strong> — быстрый протокол без установки соединения.
+                    <ul>
+                        <li><strong>UDP:</strong> не гарантирует доставку, быстрее, меньше накладных расходов (DNS, видео, игры)</li>
+                        <li><strong>Отличия:</strong> TCP — надежность, UDP — скорость</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">9. Безопасность в сетях</div>
+                <div class="answer">
+                    <ul>
+                        <li><strong>Конфиденциальность:</strong> защита данных от несанкционированного доступа (шифрование)</li>
+                        <li><strong>Аутентификация:</strong> проверка подлинности пользователя (пароли, сертификаты)</li>
+                        <li><strong>Авторизация:</strong> предоставление прав доступа к ресурсам</li>
+                        <li><strong>Целостность:</strong> защита от изменения данных (хеш-функции, цифровые подписи)</li>
+                        <li><strong>Криптография:</strong> наука о шифровании данных</li>
+                        <li><strong>Криптоанализ:</strong> взлом шифров</li>
+                        <li><strong>Криптология:</strong> криптография + криптоанализ</li>
+                        <li><strong>Шифр:</strong> алгоритм преобразования данных</li>
+                        <li><strong>Код:</strong> замена слов/фраз на символы</li>
+                        <li><strong>Ключ шифра:</strong> секретная информация для шифрования/дешифрования</li>
+                        <li><strong>IPsec:</strong> защита IP-пакетов на сетевом уровне</li>
+                        <li><strong>SSL/TLS:</strong> шифрование на транспортном уровне (HTTPS)</li>
+                        <li><strong>HTTPS:</strong> HTTP + SSL/TLS</li>
+                        <li><strong>DNSsec:</strong> защита DNS от подделки записей</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">10. Модели взаимодействия сетевых приложений (OSI/ISO, TCP/IP)</div>
+                <div class="answer">
+                    <strong>OSI (7 уровней):</strong>
+                    <ul>
+                        <li>7. Прикладной (HTTP, FTP)</li>
+                        <li>6. Представления (шифрование, сжатие)</li>
+                        <li>5. Сеансовый (управление сеансами)</li>
+                        <li>4. Транспортный (TCP, UDP)</li>
+                        <li>3. Сетевой (IP, маршрутизация)</li>
+                        <li>2. Канальный (Ethernet, MAC-адреса)</li>
+                        <li>1. Физический (кабели, сигналы)</li>
+                    </ul>
+                    <strong>TCP/IP (4 уровня):</strong>
+                    <ul>
+                        <li>4. Прикладной (HTTP, DNS, FTP)</li>
+                        <li>3. Транспортный (TCP, UDP)</li>
+                        <li>2. Интернет (IP)</li>
+                        <li>1. Канальный (Ethernet)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">11. Архитектура распределенного приложения (клиент/сервер)</div>
+                <div class="answer">
+                    <strong>Клиент-сервер</strong> — модель взаимодействия, где клиент запрашивает услуги, а сервер их предоставляет.
+                    <ul>
+                        <li><strong>Клиент:</strong> инициирует запросы, имеет пользовательский интерфейс</li>
+                        <li><strong>Сервер:</strong> обрабатывает запросы, управляет ресурсами, хранит данные</li>
+                        <li><strong>Типы:</strong> двухуровневая (клиент-сервер), трехуровневая (клиент-сервер приложений-БД), многоуровневая</li>
+                        <li><strong>Преимущества:</strong> централизованное управление, масштабируемость, безопасность</li>
+                        <li><strong>Примеры:</strong> веб-браузер и веб-сервер, почтовый клиент и почтовый сервер</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">12. Понятие сокета. Основные параметры сокета</div>
+                <div class="answer">
+                    <strong>Сокет</strong> — программный интерфейс для обмена данными между процессами через сеть.
+                    <ul>
+                        <li><strong>Определение:</strong> конечная точка двунаправленного канала связи</li>
+                        <li><strong>Параметры:</strong></li>
+                        <li>- IP-адрес (идентификация узла)</li>
+                        <li>- Порт (идентификация приложения, 0-65535)</li>
+                        <li>- Протокол (TCP или UDP)</li>
+                        <li>- Тип сокета (SOCK_STREAM для TCP, SOCK_DGRAM для UDP)</li>
+                        <li><strong>Операции:</strong> socket() → bind() → listen() → accept() → send()/recv() → close()</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">13. Виртуализация в РИС</div>
+                <div class="answer">
+                    <strong>Виртуализация</strong> — создание виртуальных версий ресурсов (серверов, сетей, хранилищ).
+                    <ul>
+                        <li><strong>Типы:</strong></li>
+                        <li>- Аппаратная (гипервизоры: VMware, Hyper-V, KVM)</li>
+                        <li>- Контейнеризация (Docker, Kubernetes)</li>
+                        <li>- Виртуализация приложений</li>
+                        <li><strong>Преимущества:</strong> эффективное использование ресурсов, изоляция, быстрое развертывание, миграция</li>
+                        <li><strong>В РИС:</strong> позволяет динамически распределять ресурсы между узлами</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">14. Синхронизация в РИС</div>
+                <div class="answer">
+                    <strong>Синхронизация</strong> — координация выполнения процессов для обеспечения корректной работы.
+                    <ul>
+                        <li><strong>Проблемы:</strong> гонки данных, взаимоблокировки, несогласованность</li>
+                        <li><strong>Механизмы:</strong></li>
+                        <li>- Мьютексы (взаимное исключение)</li>
+                        <li>- Семафоры (счетчики доступа)</li>
+                        <li>- Мониторы (высокоуровневая синхронизация)</li>
+                        <li>- Барьеры (ожидание всех процессов)</li>
+                        <li><strong>Синхронизация времени:</strong> NTP (Network Time Protocol)</li>
+                        <li><strong>Алгоритмы:</strong> Lamport timestamps, векторные часы, алгоритм Беркли</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">15. Виды и типы РИС</div>
+                <div class="answer">
+                    <strong>РИС (Распределенные Информационные Системы)</strong> — системы с компонентами на разных узлах сети.
+                    <ul>
+                        <li><strong>По архитектуре:</strong></li>
+                        <li>- Клиент-сервер</li>
+                        <li>- Peer-to-peer (P2P)</li>
+                        <li>- Многоуровневые</li>
+                        <li><strong>По назначению:</strong></li>
+                        <li>- Распределенные БД</li>
+                        <li>- Распределенные файловые системы (HDFS, GFS)</li>
+                        <li>- Распределенные вычислительные системы (кластеры, грид)</li>
+                        <li><strong>По связности:</strong> слабосвязанные, сильносвязанные</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">16. Преимущества распределенных вычислений</div>
+                <div class="answer">
+                    <ul>
+                        <li><strong>Масштабируемость:</strong> легко добавлять новые узлы</li>
+                        <li><strong>Производительность:</strong> параллельная обработка задач</li>
+                        <li><strong>Надежность:</strong> отказ одного узла не останавливает систему</li>
+                        <li><strong>Доступность:</strong> данные доступны из разных мест</li>
+                        <li><strong>Экономичность:</strong> использование обычных компьютеров вместо суперкомпьютеров</li>
+                        <li><strong>Географическое распределение:</strong> размещение ресурсов ближе к пользователям</li>
+                        <li><strong>Отказоустойчивость:</strong> репликация данных</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">17. Использование распределенных вычислений</div>
+                <div class="answer">
+                    <ul>
+                        <li><strong>Научные расчеты:</strong> моделирование климата, анализ генома, физические эксперименты</li>
+                        <li><strong>Big Data:</strong> обработка больших объемов данных (Hadoop, Spark)</li>
+                        <li><strong>Веб-сервисы:</strong> Google, Facebook, Amazon</li>
+                        <li><strong>Финансы:</strong> анализ рынков, обработка транзакций</li>
+                        <li><strong>Машинное обучение:</strong> обучение нейронных сетей</li>
+                        <li><strong>Рендеринг:</strong> обработка видео и графики</li>
+                        <li><strong>Блокчейн:</strong> распределенные реестры (Bitcoin, Ethereum)</li>
+                        <li><strong>CDN:</strong> доставка контента (Cloudflare, Akamai)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">18. Параллельные/сетевые вычисления</div>
+                <div class="answer">
+                    <strong>Параллельные вычисления</strong> — одновременное выполнение задач на нескольких процессорах.
+                    <ul>
+                        <li><strong>Типы параллелизма:</strong></li>
+                        <li>- Параллелизм данных (одна операция на разных данных)</li>
+                        <li>- Параллелизм задач (разные операции одновременно)</li>
+                        <li><strong>Архитектуры:</strong> многоядерные процессоры, GPU, кластеры</li>
+                    </ul>
+                    <strong>Сетевые вычисления</strong> — вычисления на узлах, связанных через сеть.
+                    <ul>
+                        <li><strong>Отличие:</strong> параллельные — на одной машине/кластере, сетевые — через интернет</li>
+                        <li><strong>Примеры:</strong> SETI@home, Folding@home (добровольные вычисления)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">19. Облачные РИС</div>
+                <div class="answer">
+                    <strong>Облачные вычисления</strong> — предоставление вычислительных ресурсов через интернет.
+                    <ul>
+                        <li><strong>Модели обслуживания:</strong></li>
+                        <li>- IaaS (Infrastructure): виртуальные машины (AWS EC2, Azure VM)</li>
+                        <li>- PaaS (Platform): платформы разработки (Google App Engine, Heroku)</li>
+                        <li>- SaaS (Software): готовые приложения (Gmail, Office 365)</li>
+                        <li><strong>Модели развертывания:</strong> публичные, частные, гибридные облака</li>
+                        <li><strong>Преимущества:</strong> оплата по факту, эластичность, доступность, отсутствие обслуживания</li>
+                        <li><strong>Провайдеры:</strong> AWS, Microsoft Azure, Google Cloud, Yandex Cloud</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">20. Виды системных архитектур РИС</div>
+                <div class="answer">
+                    <ul>
+                        <li><strong>Клиент-сервер:</strong> централизованный сервер обслуживает клиентов</li>
+                        <li><strong>Многоуровневая (N-tier):</strong> разделение на уровни (презентация, бизнес-логика, данные)</li>
+                        <li><strong>Peer-to-peer (P2P):</strong> равноправные узлы (BitTorrent, Skype)</li>
+                        <li><strong>Микросервисы:</strong> приложение из независимых сервисов</li>
+                        <li><strong>Service-Oriented Architecture (SOA):</strong> взаимодействие через сервисы</li>
+                        <li><strong>Event-driven:</strong> реакция на события (Kafka, RabbitMQ)</li>
+                        <li><strong>Grid computing:</strong> объединение гетерогенных ресурсов</li>
+                        <li><strong>Cluster computing:</strong> группа однородных компьютеров</li>
+                        <li><strong>Serverless:</strong> выполнение функций без управления серверами (AWS Lambda)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="no-results" id="noResults">
+            ❌ Ничего не найдено. Попробуй другой запрос.
+        </div>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const qaContainer = document.getElementById('qaContainer');
+        const noResults = document.getElementById('noResults');
+        const qaItems = document.querySelectorAll('.qa-item');
+
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            qaItems.forEach(item => {
+                const question = item.querySelector('.question').textContent.toLowerCase();
+                const answer = item.querySelector('.answer').textContent.toLowerCase();
+                
+                if (searchTerm === '' || question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                    
+                    if (searchTerm !== '') {
+                        highlightText(item, searchTerm);
+                    } else {
+                        removeHighlight(item);
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+                qaContainer.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                qaContainer.style.display = 'block';
+            }
+        });
+
+        function highlightText(element, searchTerm) {
+            const question = element.querySelector('.question');
+            const answer = element.querySelector('.answer');
+            
+            [question, answer].forEach(el => {
+                const originalText = el.textContent;
+                const regex = new RegExp(`(${searchTerm})`, 'gi');
+                const highlightedHTML = originalText.replace(regex, '<span class="highlight">$1</span>');
+                
+                if (originalText !== highlightedHTML) {
+                    el.innerHTML = highlightedHTML;
+                }
+            });
+        }
+
+        function removeHighlight(element) {
+            const question = element.querySelector('.question');
+            const answer = element.querySelector('.answer');
+            
+            [question, answer].forEach(el => {
+                const text = el.textContent;
+                el.textContent = text;
+            });
+        }
+
+        searchInput.focus();
+    </script>
+</body>
+</html>
