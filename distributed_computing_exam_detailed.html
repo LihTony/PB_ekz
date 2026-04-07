@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Распределенные вычисления - Развернутые ответы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .search-box {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+        #searchInput {
+            width: 100%;
+            padding: 15px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        #searchInput:focus {
+            border-color: #764ba2;
+            box-shadow: 0 0 10px rgba(118, 75, 162, 0.3);
+        }
+        .content {
+            padding: 30px;
+        }
+        .qa-item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s;
+        }
+        .qa-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+        .question {
+            font-weight: bold;
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .answer {
+            color: #333;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        .answer p {
+            margin-bottom: 12px;
+        }
+        .answer ul {
+            margin-left: 25px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .answer li {
+            margin-bottom: 8px;
+        }
+        .answer strong {
+            color: #764ba2;
+        }
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-size: 18px;
+            display: none;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .section-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 Распределенные вычисления</h1>
+            <p>Развернутые ответы для глубокой подготовки</p>
+        </div>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Введи ключевое слово для поиска...">
+        </div>
+        
+        <div class="content" id="qaContainer">
+            <div class="qa-item">
+                <div class="question">1. Архитектурный подход REST API (CRUD), RESTful веб-сервисы</div>
+                <div class="answer">
+                    <p><strong>REST (Representational State Transfer)</strong> — это архитектурный стиль для построения распределенных систем, основанный на принципах веба и протокола HTTP. Разработан Роем Филдингом в 2000 году.</p>
+                    
+                    <div class="section-title">Основные принципы REST:</div>
+                    <ul>
+                        <li><strong>Stateless (без состояния):</strong> каждый запрос содержит всю необходимую информацию, сервер не хранит состояние клиента между запросами</li>
+                        <li><strong>Клиент-сервер:</strong> разделение ответственности — клиент отвечает за UI, сервер за данные</li>
+                        <li><strong>Кэширование:</strong> ответы могут быть помечены как кэшируемые для повышения производительности</li>
+                        <li><strong>Единообразие интерфейса:</strong> стандартизированные методы взаимодействия</li>
+                        <li><strong>Слоистая система:</strong> клиент не знает, с каким именно сервером взаимодействует (может быть прокси, балансировщик)</li>
+                    </ul>
+                    
+                    <div class="section-title">CRUD операции и HTTP методы:</div>
+                    <ul>
+                        <li><strong>Create (создание):</strong> POST /users — создать нового пользователя</li>
+                        <li><strong>Read (чтение):</strong> GET /users/123 — получить пользователя, GET /users — список всех</li>
+                        <li><strong>Update (обновление):</strong> PUT /users/123 — полное обновление, PATCH /users/123 — частичное</li>
+                        <li><strong>Delete (удаление):</strong> DELETE /users/123 — удалить пользователя</li>
+                    </ul>
+                    
+                    <div class="section-title">RESTful веб-сервисы:</div>
+                    <ul>
+                        <li>Используют URI для идентификации ресурсов (существительные, не глаголы): /users, /products/42</li>
+                        <li>Возвращают данные в стандартных форматах: JSON (чаще всего), XML</li>
+                        <li>Используют стандартные коды ответов HTTP: 200 OK, 201 Created, 404 Not Found, 500 Internal Server Error</li>
+                        <li>Поддерживают версионирование API: /api/v1/users, /api/v2/users</li>
+                        <li>Могут использовать HATEOAS (Hypermedia As The Engine Of Application State) — ссылки на связанные ресурсы в ответах</li>
+                    </ul>
+                    
+                    <p><strong>Преимущества:</strong> простота, масштабируемость, независимость от платформы, кэширование, видимость (легко отладить через браузер).</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">2. Понятие протокол. Виды протоколов</div>
+                <div class="answer">
+                    <p><strong>Протокол</strong> — это формальный набор правил и соглашений, определяющих формат и порядок обмена сообщениями между двумя или более взаимодействующими объектами в сети, а также действия, предпринимаемые при передаче и приеме сообщений.</p>
+                    
+                    <p>Протоколы определяют: синтаксис (формат данных), семантику (значение полей), тайминг (скорость передачи, последовательность).</p>
+                    
+                    <div class="section-title">Классификация по уровням модели OSI:</div>
+                    <ul>
+                        <li><strong>Прикладной уровень (7):</strong> HTTP/HTTPS (веб), FTP (передача файлов), SMTP (почта), DNS (имена), SSH (удаленный доступ), Telnet, SNMP (управление сетью)</li>
+                        <li><strong>Представления (6):</strong> SSL/TLS (шифрование), MIME (форматы данных)</li>
+                        <li><strong>Сеансовый (5):</strong> NetBIOS, RPC (удаленный вызов процедур)</li>
+                        <li><strong>Транспортный (4):</strong> TCP (надежная доставка), UDP (быстрая доставка), SCTP</li>
+                        <li><strong>Сетевой (3):</strong> IP (маршрутизация), ICMP (диагностика), ARP (преобразование адресов), OSPF, BGP (маршрутизация)</li>
+                        <li><strong>Канальный (2):</strong> Ethernet, Wi-Fi (802.11), PPP, HDLC</li>
+                        <li><strong>Физический (1):</strong> стандарты кабелей, радиосигналов (RS-232, USB)</li>
+                    </ul>
+                    
+                    <div class="section-title">По назначению:</div>
+                    <ul>
+                        <li><strong>Маршрутизации:</strong> RIP, OSPF, BGP — определяют пути передачи данных</li>
+                        <li><strong>Безопасности:</strong> IPsec, SSL/TLS, SSH — защита данных</li>
+                        <li><strong>Управления:</strong> SNMP, ICMP — мониторинг и диагностика сети</li>
+                        <li><strong>Конфигурации:</strong> DHCP, BOOTP — автоматическая настройка устройств</li>
+                    </ul>
+                    
+                    <p><strong>Стандартизация:</strong> протоколы разрабатываются организациями IETF (Internet Engineering Task Force), IEEE, ISO, ITU.</p>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">3. Протоколы HTTP/HTTPS</div>
+                <div class="answer">
+                    <p><strong>HTTP (HyperText Transfer Protocol)</strong> — протокол прикладного уровня для передачи гипертекстовых документов. Работает по модели запрос-ответ.</p>
+                    
+                    <div class="section-title">Характеристики HTTP:</div>
+                    <ul>
+                        <li><strong>Порт:</strong> 80 (по умолчанию)</li>
+                        <li><strong>Stateless:</strong> не сохраняет состояние между запросами (используются cookies, сессии для обхода)</li>
+                        <li><strong>Текстовый протокол:</strong> легко читается человеком</li>
+                        <li><strong>Версии:</strong> HTTP/1.0 (1996), HTTP/1.1 (1997, persistent connections), HTTP/2 (2015, мультиплексирование), HTTP/3 (2022, QUIC)</li>
+                    </ul>
+                    
+                    <div class="section-title">HTTP методы:</div>
+                    <ul>
+                        <li><strong>GET:</strong> получение ресурса (идемпотентный, безопасный)</li>
+                        <li><strong>POST:</strong> создание ресурса, отправка данных (не идемпотентный)</li>
+                        <li><strong>PUT:</strong> полная замена ресурса (идемпотентный)</li>
+                        <li><strong>PATCH:</strong> частичное обновление ресурса</li>
+                        <li><strong>DELETE:</strong> удаление ресурса (идемпотентный)</li>
+                        <li><strong>HEAD:</strong> получение заголовков без тела ответа</li>
+                        <li><strong>OPTIONS:</strong> получение поддерживаемых методов</li>
+                    </ul>
+                    
+                    <div class="section-title">Коды состояния HTTP:</div>
+                    <ul>
+                        <li><strong>1xx (информационные):</strong> 100 Continue, 101 Switching Protocols</li>
+                        <li><strong>2xx (успех):</strong> 200 OK, 201 Created, 204 No Content</li>
+                        <li><strong>3xx (перенаправление):</strong> 301 Moved Permanently, 302 Found, 304 Not Modified</li>
+                        <li><strong>4xx (ошибка клиента):</strong> 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found</li>
+                        <li><strong>5xx (ошибка сервера):</strong> 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable</li>
+                    </ul>
+                    
+                    <div class="section-title">HTTPS (HTTP Secure):</div>
+                    <ul>
+                        <li><strong>Порт:</strong> 443</li>
+                        <li><strong>Шифрование:</strong> использует SSL/TLS для защиты данных</li>
+                        <li><strong>Процесс:</strong> TLS handshake → обмен ключами → шифрованная передача данных</li>
+                        <li><strong>Сертификаты:</strong> проверка подлинности сервера через Certificate Authority (CA)</li>
+                        <li><strong>Защита:</strong> конфиденциальность (шифрование), целостность (защита от изменений), аутентификация (проверка сервера)</li>
+                        <li><strong>Преимущества:</strong> защита от перехвата, MITM атак, улучшение SEO, доверие пользователей</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="qa-item">
+                <div class="question">4. SOAP, структура протокола</div>
+                <div class="answer">
+                    <p><strong>SOAP (Simple Object Access Protocol)</strong> — протокол обмена структурированными сообщениями в распределенных системах, основанный на XML. Разработан для обеспечения взаимодействия между приложениями независимо от платформы и языка программирования.</p>
+                    
+                    <div class="section-title">Структура SOAP сообщения:</div>
+                    <ul>
+                        <li><strong>Envelope (конверт):</strong> корневой элемент, обязательный. Определяет начало и конец сообщения, содержит пространства имен XML. Формат: &lt;soap:Envelope&gt;...&lt;/soap:Envelope&gt;</li>
+                        <li><strong>Header (заголовок):</strong> необязательный элемент. Содержит метаинформацию: аутентификацию, транзакции, маршрутизацию, приоритеты. Атрибуты: mustUnderstand (обязательность обработки), actor (получатель)</li>
+                        <li><strong>Body (тело):</strong> обязательный элемент. Содержит основные данные запроса или ответа, вызовы методов и параметры</li>
+                        <li><strong>Fault (ошибка):</strong> необязательный элемент внутри Body. Содержит информацию об ошибках: faultcode (код ошибки), faultstring (описание), faultactor (источник), detail (детали)</li>
+                    </ul>
+                    
+                    <div class="section-title">Характеристики SOAP:</div>
+                    <ul>
+                        <li><strong>Транспорт:</strong> может работать поверх HTTP, SMTP, TCP, JMS</li>
+                        <li><strong>Формат:</strong> только XML (строгая типизация)</li>
+                        <li><strong>WSDL:</strong> Web Services Description Language — описание интерфейса сервиса</li>
+                        <li><strong>WS-Security:</strong> встроенная поддержка безопасности (шифрование, цифровые подписи)</li>
+                        <li><strong>Транзакции:</strong> поддержка распределенных транзакций (WS-AtomicTransaction)</li>
+                    </ul>
+                    
+                    <div class="section-title">SOAP vs REST:</div>
+                    <ul>
+                        <li><strong>SOAP:</strong> строгий стандарт, XML, сложнее, больше накладных расходов, лучше для enterprise (банки, платежи)</li>
+                        <li><strong>REST:</strong> архитектурный стиль, JSON/XML, проще, легковеснее, лучше для веб и мобильных приложений</li>
+                    </ul>
+                </div>
+            </div>
